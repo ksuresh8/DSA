@@ -1,0 +1,38 @@
+{
+  "name": "trades",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "symbol": {
+      "type": "string",
+      "required": true
+    },
+    "tradedDate": {
+      "type": "date",
+      "required": true
+    },
+    "expiry": {
+      "type": "date",
+      "required": true
+    },
+    "optionType": {
+      "type": "string",
+      "required": true
+    },
+    "strikePrice": {
+      "type": "number",
+      "required": true
+    },
+    "open": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

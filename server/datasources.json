@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "trades": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017",
+    "database": "trades",
+    "password": "",
+    "name": "trades",
+    "user": "",
+    "connector": "mongodb"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "niftyoptions",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tdate": {
+      "type": "date"
+    },
+    "ce_oi": {
+      "type": "string"
+    },
+    "ce_changeoi": {
+      "type": "string"
+    },
+    "ce_volume": {
+      "type": "string"
+    },
+    "ce_ltp": {
+      "type": "string"
+    },
+    "ce_net_change": {
+      "type": "number"
+    },
+    "strikeprice": {
+      "type": "number"
+    },
+    "pe_net_change": {
+      "type": "string"
+    },
+    "pe_ltp": {
+      "type": "string"
+    },
+    "pe_volume": {
+      "type": "string"
+    },
+    "pe_changeoi": {
+      "type": "string"
+    },
+    "pe_oi": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

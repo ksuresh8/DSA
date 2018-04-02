@@ -1,0 +1,5515 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NSE - National Stock Exchange of India Ltd.</title>
+<script type="text/javascript">
+var page=["livewth_optch","liveMarket"];
+</script>
+
+<script type="text/javascript" src="/common/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="/common/js/mainNav.js"></script>
+<script type="text/javascript" src="/common/js/js.js"></script>
+<!--date util -->
+<script type="text/javascript" src="/live_market/resources/js/date.js"></script>
+
+<link href="/common/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/live_market/resources/css/live_market.css" rel="stylesheet" type="text/css" />
+
+
+<link rel="stylesheet" type="text/css" href="/common/css/skin.css" />
+<link rel="shortcut icon" type="image/x-icon" href="/common/images/favicon.ico" />
+
+
+<!--[if IE 8]>
+<link href="/common/css/ie8.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 7]>
+<link href="/common/css/ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!--[if IE 6]>
+<link href="/common/css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<!--<script type="text/javascript" src="/common/js/js.js"></script>-->
+<!-- <link rel="shortcut icon" type="image/x-icon" href="/common/images/favicon.ico" /> -->
+<script language="javascript" src="/js/commonfuncs_homepage.js"></script>
+<script language="javascript" src="/js/sym_map/symbolMap.js"></script>
+<script language="javascript" src="/js/jquery.freezeheader.js"></script>
+
+<script type="text/javascript">
+var isIE=(document.all)?1:0;
+var isNS4=(document.layers)?1:0;
+var isNS6=((document.getElementById)&&(navigator.appName=='Netscape'))?1:0;
+var isNS=((isNS4)||(isNS6))?1:0;
+var DHTML=(isIE||isNS4||isNS6)?1:0;
+//capEvents();
+
+$(document).ready(function(){
+
+	$("#octable").freezeHeader();
+
+});
+
+function refresh()
+{
+	window.location.reload(true);
+}
+
+function validateForm()
+{
+	var date = document.getElementById("date").value;
+	if(date == "select")
+	{
+		alert("Please select Expiry date");
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+function goBtnClick(strSymbol)
+{
+
+	//alert(strSymbol);
+	if(strSymbol == "index")
+	{	
+		var sym = document.ocForm.symbol.value = $("#optnContract").val();
+		if(sym == "select")
+		{
+			alert("Please select underlying Indices");
+			
+			return false;
+		}		
+		else
+		{	
+			if (sym.indexOf('%26')>=0){
+					location.href = '/marketinfo/sym_map/symbolMapping.jsp?symbol='+sym+'&instrument=OPTIDX&date=-&segmentLink=17';
+				}
+				else{
+			//alert('/marketinfo/sym_map/symbolMapping.jsp?symbol='+sym+'&instrument=OPTIDX&date=-&segmentLink=17');
+				//location.href = '/marketinfo/sym_map/symbolMapping.jsp?symbol='+escape(sym)+'&instrument=OPTIDX&date=-&segmentLink=17';
+				
+				
+				if(sym == "NIFTY")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10003&symbol=NIFTY&symbol=NIFTY&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "NIFTYINFRA")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10004&symbol=NIFTYINFRA&symbol=NIFTYINFRA&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "NIFTYIT")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10005&symbol=NIFTYIT&symbol=NIFTYIT&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "NIFTYPSE")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10007&symbol=NIFTYPSE&symbol=NIFTYPSE&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "BANKNIFTY")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-9999&symbol=BANKNIFTY&symbol=BANKNIFTY&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+
+				if(sym == "NIFTYMID50")
+				{
+				location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10006&symbol=NIFTYMID50&symbol=NIFTYMID50&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+				
+				if(sym == "S&P500")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10008&symbol=S%26P500&symbol=S%26P500&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				
+				if(sym == "FTSE100")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10001&symbol=FTSE100&symbol=FTSE100&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				if(sym == "NIFTYCPSE")
+				{
+					location.href='/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbolCode=-10004&symbol=NIFTYCPSE&symbol=NIFTYCPSE&instrument=OPTIDX&date=-&segmentLink=17&segmentLink=17';
+				}
+
+				}
+				
+		}	
+	}
+	if(strSymbol == "stock")
+	{	
+		var sym = $("#underlyStock").val();
+		sym = trimSpaces(sym);
+		if(sym=="Search for an underlying stock:")
+		{
+			alert("Please Enter underlying stock");
+		}
+		else	
+		{
+			if(sym.length<2)
+			{
+				alert("Please enter more than 2 character in underlying stock");
+			}
+			else
+			{	
+				var instru = document.ocForm.instrument.value;
+					location.href = '/marketinfo/sym_map/symbolMapping.jsp?symbol='+escape(sym)+'&instrument=OPTSTK&date=-&segmentLink=17';
+			}	
+		}
+	}
+}
+//capEvents();
+function popup ( url ) {
+    chartpopup = window.open( url,'chartspopup','location=no,menubar=no,toolbar=no,resizable=no,status=yes,width=780,height=500,scrollbars=yes,screenX=0,screenY=0,left=0,top=0');
+    chartpopup.focus();
+}
+function chartPopup(symbl, instrumen, dat, strke, calOrput, mainSymbol ){
+	var dFormat = "ddNNNyyyy";
+		var startDate = new Date(getDateFromFormat(dat,dFormat));
+		var tameDate = formatDate(startDate,'dd-MM-yyyy');
+	var url="/charts/webtame/webchart.jsp?OISymbol="+escape(mainSymbol)+"&CDSymbol="+escape(symbl)+"&Segment=FO&Instrument="+instrumen+"&Series=EQ&CDExpiryMonth=&FOExpiryMonth="+tameDate+"&IRFExpiryMonth=&CDDate1=&CDDate2=&PeriodType=2&Periodicity=1&StrikePrice="+strke+"&OptionType="+calOrput+"&Template=fo_options_Intrday.jsp";
+	popup ( url );
+	
+}
+
+function popup1 ( symbl,instrumen,dat,strke,calOrput ) {
+	symbl=encodeURIComponent(symbl);
+	instrumen=encodeURIComponent(instrumen);
+	dat=encodeURIComponent(dat);
+	strke=encodeURIComponent(strke);
+	calOrput=encodeURIComponent(calOrput);
+    url="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying="+symbl+"&instrument="+instrumen+"&expiry="+dat+"&type="+calOrput+"&strike="+strke
+    printpopup = window.open( url,'printpopup','location=no,menubar=yes,toolbar=no,resizable=yes,scrollbars=yes,status=yes,maximizable=true,screenX=0,screenY=0,left=0,top=0');printpopup.focus();
+    //location.href = url;
+}
+function submitRequest(symbol,instrument)
+{
+	var date = document.optionChain.expirydate.options[document.optionChain.expirydate.selectedIndex].value;
+	//alert(date);
+	//location.href = '/marketinfo/fo/optionKeys.jsp?symbol='+symbol+'&instrument='+instrument+'&date='+date;
+	location.href = '/live_market/dynaContent/live_watch/option_chain/optionKeys.jsp?symbol='+symbol+'&instrument='+instrument+'&date='+date;
+}
+</script>
+<style>
+.tphead {
+    color: #EF620D;
+    padding: 0;
+}
+
+.srchpnl, .srchpnl2 {
+    font-size: 1.1em;
+    margin: 10px 0 0;
+}
+</style>
+</head>
+<body>
+
+ 
+<!--<form name="ocForm" id="ocForm" action="/marketinfo/sym_map/symbolMapping.jsp" method="get" onsubmit="return validate()" ><a name="top"></a> -->
+
+<body >
+<div id="container"> 
+	<!--Wrapper Start-->
+	<div id="wrapper"> 
+		
+		<!--Main Menu Start-->
+		<div id="main_menu"> </div>
+		<!--Main Menu End--> 
+	</div>
+	<div class="clear"></div>
+	<!--Wrapper End--> 
+	<!-- Content Big Start -->
+	<div class="content_big">
+		<div class="black_overlay" style="display:none"></div>
+		<div id="wrapper_btm">
+			<div class="main_content">
+				<div id="breadcrumb"></div></div>
+			<!-- Main Content Start-->
+						<br>
+				<table width="100%"><tr><td>
+				<div class="tphead"><h2>Option Chain (Equity Derivatives)</h2></div>
+				</td><td align="right">
+				<div style="float:right; font-size:1.2em;">
+
+				
+				<span >Underlying Index: <b style="font-size:1.2em;">NIFTY 8769.05</b>&nbsp;</span>
+				
+				<span>As on Feb 08, 2017 15:30:29 IST<a> <img src="/live_market/resources/images/refressbtn.gif" onclick="refresh();" style="cursor: pointer" title="refresh" /></a></span></div>
+				</td></tr></table>
+				<div class="srchpnl" style="padding:2px 0 2px 5px;height:25px;">
+				
+				<b>View Options Contracts for:</b> <span>
+					<select style="width:100px"  id="optnContract" name="optnContract" onchange="goBtnClick('index');" class="goodTextBox">					
+					<option value="select" selected>Select Index</option>
+					
+						
+									
+									<option  value="NIFTY" selected>NIFTY</option>
+							
+									
+									<option  value="NIFTYINFRA" >NIFTYINFRA</option>
+							
+									
+									<option  value="NIFTYIT" >NIFTYIT</option>
+							
+									
+									<option  value="NIFTYPSE" >NIFTYPSE</option>
+							
+									
+									<option  value="BANKNIFTY" >BANKNIFTY</option>
+							
+									
+									<option  value="NIFTYMID50" >NIFTYMID50</option>
+							
+									
+									<option  value="S&P500" >S&P500</option>
+							
+									
+									<option  value="FTSE100" >FTSE100</option>
+							
+									
+									<option  value="NIFTYCPSE" >NIFTYCPSE</option>
+							
+						</select>
+					</span>
+					<!--<div><input type="image" src="/live_market/resources/images/gobtn.gif" onclick="goBtnClick('index');" style="cursor: pointer"/>
+					</div>Sonal-->
+					<b>OR</b> <span>
+					<input style="width:170px" type="text" id="underlyStock" class="txtinp" style="text-transform:uppercase" value="Search for an underlying stock:" onfocus="if(this.value=='Search for an underlying stock:')this.value=''" onblur="if(this.value=='')this.value='Search for an underlying stock:'" onkeyup="if(event.keyCode==13){goBtnClick('stock');return false;}" />
+					</span>
+					<div>
+						<input type="image" src="/live_market/resources/images/gobtn.gif" onclick="goBtnClick('stock');" style="cursor: pointer"/>
+					</div>
+					
+					<form name="ocForm" id="ocForm"  onsubmit="return validateForm()" style="margin-top:0px;"><a name="top" ></a>
+						<input type="hidden" name="segmentLink" id="segmentLink" value="17" /> 
+						<input type="hidden" name="instrument" id="instrument" value="OPTIDX">
+						<input type="hidden" name="symbol" id="symbol" value="NIFTY">
+				<b>Filter by:</b><span> Expiry Date
+					<select style="width:100px" id="date" name="date" onchange="document.forms['ocForm'].submit();" class="goodTextBox">
+						
+						<option value="select"> Select </option>
+						
+						
+						
+								<option  value="23FEB2017" selected>23FEB2017</option>
+					
+						
+								<option  value="30MAR2017" >30MAR2017</option>
+					
+						
+								<option  value="27APR2017" >27APR2017</option>
+					
+						
+								<option  value="29JUN2017" >29JUN2017</option>
+					
+						
+								<option  value="28SEP2017" >28SEP2017</option>
+					
+						
+								<option  value="28DEC2017" >28DEC2017</option>
+					
+						
+								<option  value="28JUN2018" >28JUN2018</option>
+					
+						
+								<option  value="27DEC2018" >27DEC2018</option>
+					
+						
+								<option  value="27JUN2019" >27JUN2019</option>
+					
+						
+								<option  value="26DEC2019" >26DEC2019</option>
+					
+						
+								<option  value="25JUN2020" >25JUN2020</option>
+					
+						
+								<option  value="31DEC2020" >31DEC2020</option>
+					
+						
+								<option  value="24JUN2021" >24JUN2021</option>
+					
+						
+								<option  value="30DEC2021" >30DEC2021</option>
+					
+							
+					</select>			
+					</span>
+					</form>						
+					 <div style="width:110px;padding: 5px 10px;font-size: 1.1em;font-weight:bold;float: right;"><a href="/live_market/dynaContent/live_watch/fomwatchsymbol.jsp?key=NIFTY&Fut_Opt=Futures">Futures contracts</a></div>
+					
+				</div>
+				
+				
+				<table width="100%">
+				<tr ></tr>
+		
+				<tr ><td height="8"> </td></tr>
+				</table>
+				
+				
+				<div class="opttbldata">
+					<table id="octable" width="100%" border="0" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr>
+							<th colspan="11">CALLS</th>
+							<th>&nbsp;</th>
+							<th colspan="11">PUTS</th>
+						</tr>
+						<tr>
+							<!-- <th>Quote </th>   -->
+							<th title="Chart">Chart</th>
+							<th title="Open Interest">OI</th>
+							<th title="Change in Open Interest">Chng in OI</th>
+							<th title="Traded Volume">Volume</th>
+							<th title="Implied Volatility">IV</th>
+							<th title="Last Traded Price">LTP</th>
+							<!--**-->
+							<th title="Net Change">Net Chng</th>
+							
+							<th title="Bid Quantity">Bid<br>Qty</th>
+							<th title="Bid Price">Bid<br>Price</th>
+							<th title="Ask Price">Ask<br>Price</th>
+							<th title="Ask Quantity">Ask<br>Qty</th>
+							<th title="Strike Price">Strike Price</th>
+							<th title="Bid Quantity">Bid<br>Qty</th>
+							<th title="Bid Price">Bid<br>Price</th>
+							<th title="Ask Price">Ask<br>Price</th>
+							<th title="Ask Quantity">Ask<br>Qty</th>
+							<th title="Net Change">Net Chng</th>							
+							<th title="Last Traded Price">LTP</th>
+							<th title="Implied Volatility">IV</th>
+							<th title="Traded Volume">Volume</th>	
+							<th title="Change in Open Interest">Chng in OI</th>
+							<th title="Open Interest">OI</th>
+							<th title="Chart">Chart</th>
+						</tr>
+						</thead>
+							
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6400.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6400.00&type=CE&expiry=23FEB2017" target="_blank"> 2,349.95</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 775.45</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 2,378.40</td>
+							<td class="ylwbg"> 2,415.55</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6400.00"><b>6400.00</b></a></td>
+							<td class="nobg"> 225</td>
+							<td class="nobg"> 0.25</td>
+							<td class="nobg"> 0.95</td>
+							<td class="nobg"> 2,775</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.55</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','6400.00','PE')"> 0.15</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6400.00&type=PE&expiry=23FEB2017" target="_blank"> 0.15</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 49.51</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 3</td>
+							<td class="nobg"> 150</td>
+						
+							<td class="nobg"> 450</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6400.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6450.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 2,074.85</td>
+							<td class="ylwbg"> 2,448.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6450.00"><b>6450.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6450.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6500.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 305,325</td>
+							<td class="ylwbg"> -1,650</td>
+							<td class="ylwbg"> 25</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6500.00&type=CE&expiry=23FEB2017" target="_blank"> 2,290.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 19.65</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 2,284.90</td>
+							<td class="ylwbg"> 2,299.70</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6500.00"><b>6500.00</b></a></td>
+							<td class="nobg"> 9,825</td>
+							<td class="nobg"> 0.30</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 3,300</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.05</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','6500.00','PE')"> 0.35</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6500.00&type=PE&expiry=23FEB2017" target="_blank"> 0.35</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 50.72</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 39</td>
+							<td class="nobg"> -1,800</td>
+						
+							<td class="nobg"> 36,900</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6500.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6550.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,974.85</td>
+							<td class="ylwbg"> 2,348.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6550.00"><b>6550.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6550.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><img src="/images/print3.gif"></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6600.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg"> 2,163.40</td>
+							<td class="ylwbg"> 2,221.35</td>
+							<td class="ylwbg"> 150</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6600.00"><b>6600.00</b></a></td>
+							<td class="nobg"> 300</td>
+							<td class="nobg"> 0.20</td>
+							<td class="nobg"> 0.45</td>
+							<td class="nobg"> 4,575</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','6600.00','PE')"> 0.40</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6600.00&type=PE&expiry=23FEB2017" target="_blank"> 0.40</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 9,075</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6600.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6650.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,874.85</td>
+							<td class="ylwbg"> 2,248.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6650.00"><b>6650.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6650.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><img src="/images/print3.gif"></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6700.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg"> 2,063.40</td>
+							<td class="ylwbg"> 2,121.35</td>
+							<td class="ylwbg"> 150</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6700.00"><b>6700.00</b></a></td>
+							<td class="nobg"> 300</td>
+							<td class="nobg"> 0.30</td>
+							<td class="nobg"> 0.50</td>
+							<td class="nobg"> 900</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','6700.00','PE')"> 0.40</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6700.00&type=PE&expiry=23FEB2017" target="_blank"> 0.40</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 2,100</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6700.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6750.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,783.65</td>
+							<td class="ylwbg"> 2,214.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6750.00"><b>6750.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6750.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><img src="/images/print3.gif"></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6800.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 19,425</td>
+							<td class="ylwbg"> 900</td>
+							<td class="ylwbg"> 12</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6800.00&type=CE&expiry=23FEB2017" target="_blank"> 1,976.35</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -31.55</td>
+							
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 1,973.25</td>
+							<td class="ylwbg"> 2,021.35</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6800.00"><b>6800.00</b></a></td>
+							<td class="nobg"> 300</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 0.70</td>
+							<td class="nobg"> 3,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.10</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','6800.00','PE')"> 0.40</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6800.00&type=PE&expiry=23FEB2017" target="_blank"> 0.40</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 44.25</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 36</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 3,900</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6800.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6850.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,683.65</td>
+							<td class="ylwbg"> 2,114.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6850.00"><b>6850.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6850.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><img src="/images/print3.gif"></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6900.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6900.00&type=CE&expiry=23FEB2017" target="_blank"> 1,485.65</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg"> 1,868.25</td>
+							<td class="ylwbg"> 1,921.20</td>
+							<td class="ylwbg"> 225</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6900.00"><b>6900.00</b></a></td>
+							<td class="nobg"> 225</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 0.45</td>
+							<td class="nobg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.15</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','6900.00','PE')"> 0.40</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=6900.00&type=PE&expiry=23FEB2017" target="_blank"> 0.40</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 41.95</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 2</td>
+							<td class="nobg"> -75</td>
+						
+							<td class="nobg"> 450</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6900.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6950.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,592.45</td>
+							<td class="ylwbg"> 1,957.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=6950.00"><b>6950.00</b></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '6950.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><img src="/images/print3.gif"></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7000.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 971,775</td>
+							<td class="ylwbg"> -1,275</td>
+							<td class="ylwbg"> 148</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7000.00&type=CE&expiry=23FEB2017" target="_blank"> 1,788.65</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 18.60</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,788.45</td>
+							<td class="ylwbg"> 1,796.50</td>
+							<td class="ylwbg"> 150</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7000.00"><b>7000.00</b></a></td>
+							<td class="nobg"> 19,125</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 525</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.10</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7000.00','PE')"> 0.40</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7000.00&type=PE&expiry=23FEB2017" target="_blank"> 0.40</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 39.67</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 416</td>
+							<td class="nobg"> -9,450</td>
+						
+							<td class="nobg"> 480,000</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7000.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7050.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 88,425</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7050.00&type=CE&expiry=23FEB2017" target="_blank"> 1,746.25</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,501.20</td>
+							<td class="ylwbg"> 1,819.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7050.00"><b>7050.00</b></a></td>
+							<td class="nobg"> 3,000</td>
+							<td class="nobg"> 0.20</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7050.00','PE')"> 0.70</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7050.00&type=PE&expiry=23FEB2017" target="_blank"> 0.70</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 1,275</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7050.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7100.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 174,750</td>
+							<td class="ylwbg"> -225</td>
+							<td class="ylwbg"> 16</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7100.00&type=CE&expiry=23FEB2017" target="_blank"> 1,664.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 1.00</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,690.00</td>
+							<td class="ylwbg"> 1,695.15</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7100.00"><b>7100.00</b></a></td>
+							<td class="nobg"> 300</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 0.55</td>
+							<td class="nobg"> 1,650</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.15</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7100.00','PE')"> 0.55</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7100.00&type=PE&expiry=23FEB2017" target="_blank"> 0.55</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 38.58</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 117</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 305,325</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7100.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7150.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,551.00</td>
+							<td class="ylwbg"> 1,719.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7150.00"><b>7150.00</b></a></td>
+							<td class="nobg"> 3,000</td>
+							<td class="nobg"> 0.25</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 1,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7150.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7200.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 73,875</td>
+							<td class="ylwbg"> -75</td>
+							<td class="ylwbg"> 3</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7200.00&type=CE&expiry=23FEB2017" target="_blank"> 1,547.95</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -59.00</td>
+							
+							<td class="ylwbg"> 450</td>
+							<td class="ylwbg"> 1,588.40</td>
+							<td class="ylwbg"> 1,597.95</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7200.00"><b>7200.00</b></a></td>
+							<td class="nobg"> 21,900</td>
+							<td class="nobg"> 0.35</td>
+							<td class="nobg"> 0.50</td>
+							<td class="nobg"> 4,950</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.30</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7200.00','PE')"> 0.40</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7200.00&type=PE&expiry=23FEB2017" target="_blank"> 0.40</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 35.19</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 491</td>
+							<td class="nobg"> -16,800</td>
+						
+							<td class="nobg"> 118,050</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7200.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7250.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,451.00</td>
+							<td class="ylwbg"> 1,619.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7250.00"><b>7250.00</b></a></td>
+							<td class="nobg"> 3,000</td>
+							<td class="nobg"> 0.25</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 600</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7250.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7300.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 39,075</td>
+							<td class="ylwbg"> -75</td>
+							<td class="ylwbg"> 1</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7300.00&type=CE&expiry=23FEB2017" target="_blank"> 1,479.40</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 6.10</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,489.45</td>
+							<td class="ylwbg"> 1,499.20</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7300.00"><b>7300.00</b></a></td>
+							<td class="nobg"> 900</td>
+							<td class="nobg"> 0.50</td>
+							<td class="nobg"> 0.75</td>
+							<td class="nobg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.20</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7300.00','PE')"> 0.55</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7300.00&type=PE&expiry=23FEB2017" target="_blank"> 0.55</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 34.02</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 795</td>
+							<td class="nobg"> -39,075</td>
+						
+							<td class="nobg"> 81,450</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7300.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7350.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,351.00</td>
+							<td class="ylwbg"> 1,519.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7350.00"><b>7350.00</b></a></td>
+							<td class="nobg"> 3,000</td>
+							<td class="nobg"> 0.20</td>
+							<td class="nobg"> 1.50</td>
+							<td class="nobg"> 1,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7350.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7400.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 329,700</td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 2</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7400.00&type=CE&expiry=23FEB2017" target="_blank"> 1,350.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -32.75</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,390.50</td>
+							<td class="ylwbg"> 1,398.85</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7400.00"><b>7400.00</b></a></td>
+							<td class="nobg"> 1,875</td>
+							<td class="nobg"> 0.80</td>
+							<td class="nobg"> 0.90</td>
+							<td class="nobg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Green;"> 0.20</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7400.00','PE')"> 0.95</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7400.00&type=PE&expiry=23FEB2017" target="_blank"> 0.95</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 33.67</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 66</td>
+							<td class="nobg"> -4,425</td>
+						
+							<td class="nobg"> 403,500</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7400.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7450.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,251.00</td>
+							<td class="ylwbg"> 1,419.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7450.00"><b>7450.00</b></a></td>
+							<td class="nobg"> 3,000</td>
+							<td class="nobg"> 0.20</td>
+							<td class="nobg"> 1.50</td>
+							<td class="nobg"> 600</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7450.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7500.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 475,200</td>
+							<td class="ylwbg"> -10,200</td>
+							<td class="ylwbg"> 301</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7500.00&type=CE&expiry=23FEB2017" target="_blank"> 1,298.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 21.85</td>
+							
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg"> 1,292.70</td>
+							<td class="ylwbg"> 1,298.40</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7500.00"><b>7500.00</b></a></td>
+							<td class="nobg"> 13,050</td>
+							<td class="nobg"> 0.90</td>
+							<td class="nobg"> 0.95</td>
+							<td class="nobg"> 3,525</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.05</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7500.00','PE')"> 0.90</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7500.00&type=PE&expiry=23FEB2017" target="_blank"> 0.90</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 31.14</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 834</td>
+							<td class="nobg"> -17,925</td>
+						
+							<td class="nobg"> 863,775</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7500.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7550.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,018.85</td>
+							<td class="ylwbg"> 1,370.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7550.00"><b>7550.00</b></a></td>
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.15</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7550.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7600.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 108,150</td>
+							<td class="ylwbg"> -225</td>
+							<td class="ylwbg"> 10</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7600.00&type=CE&expiry=23FEB2017" target="_blank"> 1,152.35</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -5.95</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,192.65</td>
+							<td class="ylwbg"> 1,198.20</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7600.00"><b>7600.00</b></a></td>
+							<td class="nobg"> 9,000</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 1.05</td>
+							<td class="nobg"> 6,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.10</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7600.00','PE')"> 1.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7600.00&type=PE&expiry=23FEB2017" target="_blank"> 1.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 29.18</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 918</td>
+							<td class="nobg"> -36,225</td>
+						
+							<td class="nobg"> 878,925</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7600.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7650.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 927.65</td>
+							<td class="ylwbg"> 1,274.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7650.00"><b>7650.00</b></a></td>
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.20</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7650.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7700.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 136,350</td>
+							<td class="ylwbg"> -225</td>
+							<td class="ylwbg"> 10</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7700.00&type=CE&expiry=23FEB2017" target="_blank"> 1,041.20</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -43.80</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,093.85</td>
+							<td class="ylwbg"> 1,098.35</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7700.00"><b>7700.00</b></a></td>
+							<td class="nobg"> 225</td>
+							<td class="nobg"> 0.95</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 2,700</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.25</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7700.00','PE')"> 0.95</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7700.00&type=PE&expiry=23FEB2017" target="_blank"> 0.95</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 26.69</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 399</td>
+							<td class="nobg"> -20,100</td>
+						
+							<td class="nobg"> 748,950</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7700.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7750.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7750.00&type=CE&expiry=23FEB2017" target="_blank"> 970.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 980.40</td>
+							<td class="ylwbg"> 1,118.95</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7750.00"><b>7750.00</b></a></td>
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.25</td>
+							<td class="nobg"> 2.00</td>
+							<td class="nobg"> 1,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7750.00','PE')"> 1.80</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7750.00&type=PE&expiry=23FEB2017" target="_blank"> 1.80</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 1,800</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7750.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7800.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 245,250</td>
+							<td class="ylwbg"> -3,600</td>
+							<td class="ylwbg"> 155</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7800.00&type=CE&expiry=23FEB2017" target="_blank"> 990.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 13.75</td>
+							
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg"> 994.10</td>
+							<td class="ylwbg"> 999.95</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7800.00"><b>7800.00</b></a></td>
+							<td class="nobg"> 225</td>
+							<td class="nobg"> 1.25</td>
+							<td class="nobg"> 1.35</td>
+							<td class="nobg"> 6,075</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.15</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7800.00','PE')"> 1.35</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7800.00&type=PE&expiry=23FEB2017" target="_blank"> 1.35</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 25.46</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 2,608</td>
+							<td class="nobg"> -21,750</td>
+						
+							<td class="nobg"> 1,329,600</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7800.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7850.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 736.65</td>
+							<td class="ylwbg"> 1,079.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7850.00"><b>7850.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 1.40</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -2.20</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7850.00','PE')"> 1.40</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7850.00&type=PE&expiry=23FEB2017" target="_blank"> 1.40</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 24.38</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 5</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 1,050</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7850.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7900.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 313,500</td>
+							<td class="ylwbg"> -450</td>
+							<td class="ylwbg"> 40</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 25.65</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7900.00&type=CE&expiry=23FEB2017" target="_blank"> 904.35</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 29.35</td>
+							
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg"> 894.65</td>
+							<td class="ylwbg"> 899.90</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7900.00"><b>7900.00</b></a></td>
+							<td class="nobg"> 2,175</td>
+							<td class="nobg"> 1.30</td>
+							<td class="nobg"> 1.45</td>
+							<td class="nobg"> 1,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.25</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7900.00','PE')"> 1.45</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7900.00&type=PE&expiry=23FEB2017" target="_blank"> 1.45</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 23.30</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 2,527</td>
+							<td class="nobg"> -10,575</td>
+						
+							<td class="nobg"> 1,029,150</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7900.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7950.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 4,500</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7950.00&type=CE&expiry=23FEB2017" target="_blank"> 733.75</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 751.00</td>
+							<td class="ylwbg"> 929.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=7950.00"><b>7950.00</b></a></td>
+							<td class="nobg"> 600</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Black;">-</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','7950.00','PE')"> 2.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=7950.00&type=PE&expiry=23FEB2017" target="_blank"> 2.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+						
+							<td class="nobg"> 1,800</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '7950.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8000.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 915,150</td>
+							<td class="ylwbg"> -10,125</td>
+							<td class="ylwbg"> 306</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8000.00&type=CE&expiry=23FEB2017" target="_blank"> 797.75</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 23.95</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 795.95</td>
+							<td class="ylwbg"> 800.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8000.00"><b>8000.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 1.55</td>
+							<td class="nobg"> 1.65</td>
+							<td class="nobg"> 9,675</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.30</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8000.00','PE')"> 1.65</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8000.00&type=PE&expiry=23FEB2017" target="_blank"> 1.65</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 21.28</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 11,864</td>
+							<td class="nobg"> -91,200</td>
+						
+							<td class="nobg"> 3,008,025</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8000.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8050.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 300</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8050.00&type=CE&expiry=23FEB2017" target="_blank"> 605.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 651.05</td>
+							<td class="ylwbg"> 829.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8050.00"><b>8050.00</b></a></td>
+							<td class="nobg"> 1,575</td>
+							<td class="nobg"> 1.30</td>
+							<td class="nobg"> 2.30</td>
+							<td class="nobg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.70</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8050.00','PE')"> 1.60</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8050.00&type=PE&expiry=23FEB2017" target="_blank"> 1.60</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 19.99</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 42</td>
+							<td class="nobg"> 1,650</td>
+						
+							<td class="nobg"> 46,650</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8050.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8100.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 527,700</td>
+							<td class="ylwbg"> -21,150</td>
+							<td class="ylwbg"> 369</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8100.00&type=CE&expiry=23FEB2017" target="_blank"> 694.15</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 17.15</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 696.45</td>
+							<td class="ylwbg"> 703.90</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8100.00"><b>8100.00</b></a></td>
+							<td class="nobg"> 3,000</td>
+							<td class="nobg"> 1.80</td>
+							<td class="nobg"> 1.85</td>
+							<td class="nobg"> 3,450</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.50</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8100.00','PE')"> 1.85</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8100.00&type=PE&expiry=23FEB2017" target="_blank"> 1.85</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 19.17</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 10,930</td>
+							<td class="nobg"> -6,450</td>
+						
+							<td class="nobg"> 2,056,425</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8100.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8150.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 450</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8150.00&type=CE&expiry=23FEB2017" target="_blank"> 465.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 490.15</td>
+							<td class="ylwbg"> 719.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8150.00"><b>8150.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 2.40</td>
+							<td class="nobg"> 3.40</td>
+							<td class="nobg"> 1,500</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -0.25</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8150.00','PE')"> 2.65</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8150.00&type=PE&expiry=23FEB2017" target="_blank"> 2.65</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 18.94</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 191</td>
+							<td class="nobg"> 7,275</td>
+						
+							<td class="nobg"> 45,975</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8150.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8200.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 1,034,475</td>
+							<td class="ylwbg"> -11,775</td>
+							<td class="ylwbg"> 419</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8200.00&type=CE&expiry=23FEB2017" target="_blank"> 597.55</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 12.85</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 598.30</td>
+							<td class="ylwbg"> 606.35</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8200.00"><b>8200.00</b></a></td>
+							<td class="nobg"> 10,500</td>
+							<td class="nobg"> 2.75</td>
+							<td class="nobg"> 2.85</td>
+							<td class="nobg"> 19,050</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -1.00</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8200.00','PE')"> 2.85</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8200.00&type=PE&expiry=23FEB2017" target="_blank"> 2.85</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 17.87</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 15,873</td>
+							<td class="nobg"> -28,050</td>
+						
+							<td class="nobg"> 3,151,425</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8200.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8250.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 3,300</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8250.00&type=CE&expiry=23FEB2017" target="_blank"> 475.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Black;">-</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 526.50</td>
+							<td class="ylwbg"> 557.65</td>
+							<td class="ylwbg"> 225</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8250.00"><b>8250.00</b></a></td>
+							<td class="nobg"> 1,500</td>
+							<td class="nobg"> 3.55</td>
+							<td class="nobg"> 3.70</td>
+							<td class="nobg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -1.35</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8250.00','PE')"> 3.55</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8250.00&type=PE&expiry=23FEB2017" target="_blank"> 3.55</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 17.20</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 1,001</td>
+							<td class="nobg"> 7,200</td>
+						
+							<td class="nobg"> 72,450</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8250.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8300.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 923,700</td>
+							<td class="ylwbg"> -53,550</td>
+							<td class="ylwbg"> 1,281</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8300.00&type=CE&expiry=23FEB2017" target="_blank"> 503.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 14.05</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 500.40</td>
+							<td class="ylwbg"> 507.60</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8300.00"><b>8300.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 4.85</td>
+							<td class="nobg"> 5.05</td>
+							<td class="nobg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -1.75</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8300.00','PE')"> 4.90</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8300.00&type=PE&expiry=23FEB2017" target="_blank"> 4.90</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 16.82</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 33,684</td>
+							<td class="nobg"> 85,800</td>
+						
+							<td class="nobg"> 3,967,575</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8300.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8350.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 21,900</td>
+							<td class="ylwbg">-</td>
+							<td class="ylwbg"> 4</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8350.00&type=CE&expiry=23FEB2017" target="_blank"> 433.50</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -11.10</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 435.30</td>
+							<td class="ylwbg"> 461.00</td>
+							<td class="ylwbg"> 225</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8350.00"><b>8350.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 5.85</td>
+							<td class="nobg"> 7.15</td>
+							<td class="nobg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -2.20</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8350.00','PE')"> 6.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8350.00&type=PE&expiry=23FEB2017" target="_blank"> 6.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 16.05</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 1,799</td>
+							<td class="nobg"> -150</td>
+						
+							<td class="nobg"> 129,675</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8350.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8400.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 911,550</td>
+							<td class="ylwbg"> -41,250</td>
+							<td class="ylwbg"> 1,378</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8400.00&type=CE&expiry=23FEB2017" target="_blank"> 398.45</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 4.15</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 404.65</td>
+							<td class="ylwbg"> 408.00</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8400.00"><b>8400.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 7.85</td>
+							<td class="nobg"> 8.05</td>
+							<td class="nobg"> 1,200</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -3.00</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8400.00','PE')"> 7.95</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8400.00&type=PE&expiry=23FEB2017" target="_blank"> 7.95</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 15.52</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 63,905</td>
+							<td class="nobg"> -26,700</td>
+						
+							<td class="nobg"> 4,411,500</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8400.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8450.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 101,775</td>
+							<td class="ylwbg"> -7,425</td>
+							<td class="ylwbg"> 111</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg">-</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8450.00&type=CE&expiry=23FEB2017" target="_blank"> 348.60</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Red;"> -2.80</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 350.00</td>
+							<td class="ylwbg"> 424.80</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8450.00"><b>8450.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 9.05</td>
+							<td class="nobg"> 10.05</td>
+							<td class="nobg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -4.05</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8450.00','PE')"> 9.80</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8450.00&type=PE&expiry=23FEB2017" target="_blank"> 9.80</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 14.71</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 2,984</td>
+							<td class="nobg"> -8,175</td>
+						
+							<td class="nobg"> 209,775</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8450.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8500.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 1,420,650</td>
+							<td class="ylwbg"> -90,225</td>
+							<td class="ylwbg"> 4,680</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 12.76</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8500.00&type=CE&expiry=23FEB2017" target="_blank"> 312.75</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 14.85</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 310.00</td>
+							<td class="ylwbg"> 314.05</td>
+							<td class="ylwbg"> 150</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8500.00"><b>8500.00</b></a></td>
+							<td class="nobg"> 150</td>
+							<td class="nobg"> 12.80</td>
+							<td class="nobg"> 13.25</td>
+							<td class="nobg"> 1,275</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -5.10</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8500.00','PE')"> 13.05</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8500.00&type=PE&expiry=23FEB2017" target="_blank"> 13.05</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 14.15</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 111,783</td>
+							<td class="nobg"> 544,125</td>
+						
+							<td class="nobg"> 6,264,225</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8500.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8550.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 35,625</td>
+							<td class="ylwbg"> -750</td>
+							<td class="ylwbg"> 63</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 11.27</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8550.00&type=CE&expiry=23FEB2017" target="_blank"> 263.35</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 12.00</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 263.35</td>
+							<td class="ylwbg"> 268.40</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8550.00"><b>8550.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 16.05</td>
+							<td class="nobg"> 18.20</td>
+							<td class="nobg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -6.80</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8550.00','PE')"> 16.90</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8550.00&type=PE&expiry=23FEB2017" target="_blank"> 16.90</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 13.46</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 4,750</td>
+							<td class="nobg"> 27,300</td>
+						
+							<td class="nobg"> 253,950</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8550.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8600.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 1,666,500</td>
+							<td class="ylwbg"> -7,725</td>
+							<td class="ylwbg"> 10,003</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 11.70</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8600.00&type=CE&expiry=23FEB2017" target="_blank"> 221.65</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 11.00</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 221.65</td>
+							<td class="ylwbg"> 224.25</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8600.00"><b>8600.00</b></a></td>
+							<td class="nobg"> 525</td>
+							<td class="nobg"> 23.20</td>
+							<td class="nobg"> 23.50</td>
+							<td class="nobg"> 1,050</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -7.95</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8600.00','PE')"> 23.25</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8600.00&type=PE&expiry=23FEB2017" target="_blank"> 23.25</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 13.02</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 111,472</td>
+							<td class="nobg"> -166,125</td>
+						
+							<td class="nobg"> 4,443,600</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8600.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8650.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 80,850</td>
+							<td class="ylwbg"> -375</td>
+							<td class="ylwbg"> 645</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 11.97</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8650.00&type=CE&expiry=23FEB2017" target="_blank"> 183.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 11.05</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 180.00</td>
+							<td class="ylwbg"> 189.95</td>
+							<td class="ylwbg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8650.00"><b>8650.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 30.80</td>
+							<td class="nobg"> 33.20</td>
+							<td class="nobg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -9.10</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8650.00','PE')"> 32.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8650.00&type=PE&expiry=23FEB2017" target="_blank"> 32.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 12.61</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 12,818</td>
+							<td class="nobg"> -150</td>
+						
+							<td class="nobg"> 295,425</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8650.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8700.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 3,084,300</td>
+							<td class="ylwbg"> 90,450</td>
+							<td class="ylwbg"> 58,210</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 11.38</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8700.00&type=CE&expiry=23FEB2017" target="_blank"> 143.20</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 7.45</td>
+							
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 143.15</td>
+							<td class="ylwbg"> 145.00</td>
+							<td class="ylwbg"> 4,875</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8700.00"><b>8700.00</b></a></td>
+							<td class="nobg"> 150</td>
+							<td class="nobg"> 42.55</td>
+							<td class="nobg"> 43.10</td>
+							<td class="nobg"> 750</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -10.75</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8700.00','PE')"> 43.05</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8700.00&type=PE&expiry=23FEB2017" target="_blank"> 43.05</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 12.11</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 176,850</td>
+							<td class="nobg"> 426,150</td>
+						
+							<td class="nobg"> 4,145,175</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8700.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8750.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="ylwbg"> 346,500</td>
+							<td class="ylwbg"> 120,375</td>
+							<td class="ylwbg"> 9,147</td>
+							<!-- Added By Swapnil IV-->
+							<td class="ylwbg"> 11.10</td>
+							<!-- End-->
+							<td class="ylwbg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8750.00&type=CE&expiry=23FEB2017" target="_blank"> 109.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="ylwbg" Style="color:Green;"> 5.40</td>
+							
+							<td class="ylwbg"> 150</td>
+							<td class="ylwbg"> 108.75</td>
+							<td class="ylwbg"> 110.00</td>
+							<td class="ylwbg"> 225</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8750.00"><b>8750.00</b></a></td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 57.50</td>
+							<td class="nobg"> 58.30</td>
+							<td class="nobg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="nobg" Style="color:Red;"> -13.25</td>
+							
+							
+							<td class="nobg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8750.00','PE')"> 57.70</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8750.00&type=PE&expiry=23FEB2017" target="_blank"> 57.70</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="nobg"> 11.64</td>
+							<!-- End Added By Swapnil -->
+							<td class="nobg"> 14,498</td>
+							<td class="nobg"> 88,125</td>
+						
+							<td class="nobg"> 321,975</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8750.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8800.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 4,236,900</td>
+							<td class="nobg"> 109,050</td>
+							<td class="nobg"> 172,763</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 11.34</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8800.00&type=CE&expiry=23FEB2017" target="_blank"> 83.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 5.95</td>
+							
+							<td class="nobg"> 150</td>
+							<td class="nobg"> 82.00</td>
+							<td class="nobg"> 83.00</td>
+							<td class="nobg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8800.00"><b>8800.00</b></a></td>
+							<td class="ylwbg"> 300</td>
+							<td class="ylwbg"> 77.45</td>
+							<td class="ylwbg"> 78.00</td>
+							<td class="ylwbg"> 1,350</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -15.05</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8800.00','PE')"> 78.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8800.00&type=PE&expiry=23FEB2017" target="_blank"> 78.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 11.36</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 125,581</td>
+							<td class="ylwbg"> 238,125</td>
+						
+							<td class="ylwbg"> 2,643,450</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8800.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8850.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 474,750</td>
+							<td class="nobg"> 84,525</td>
+							<td class="nobg"> 10,920</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 11.02</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8850.00&type=CE&expiry=23FEB2017" target="_blank"> 58.05</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 3.25</td>
+							
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 57.05</td>
+							<td class="nobg"> 58.60</td>
+							<td class="nobg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8850.00"><b>8850.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 99.05</td>
+							<td class="ylwbg"> 102.90</td>
+							<td class="ylwbg"> 975</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -16.20</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8850.00','PE')"> 102.90</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8850.00&type=PE&expiry=23FEB2017" target="_blank"> 102.90</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 11.05</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 1,486</td>
+							<td class="ylwbg"> 2,475</td>
+						
+							<td class="ylwbg"> 57,525</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8850.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8900.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 4,379,250</td>
+							<td class="nobg"> 41,625</td>
+							<td class="nobg"> 136,394</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 11.08</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8900.00&type=CE&expiry=23FEB2017" target="_blank"> 40.60</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 2.30</td>
+							
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 39.70</td>
+							<td class="nobg"> 40.60</td>
+							<td class="nobg"> 1,125</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8900.00"><b>8900.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 134.00</td>
+							<td class="ylwbg"> 138.40</td>
+							<td class="ylwbg"> 1,200</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -16.65</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8900.00','PE')"> 135.50</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8900.00&type=PE&expiry=23FEB2017" target="_blank"> 135.50</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 11.15</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 13,722</td>
+							<td class="ylwbg"> -26,325</td>
+						
+							<td class="ylwbg"> 849,825</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8900.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8950.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 418,650</td>
+							<td class="nobg"> 204,300</td>
+							<td class="nobg"> 11,013</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 10.87</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8950.00&type=CE&expiry=23FEB2017" target="_blank"> 26.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 0.20</td>
+							
+							<td class="nobg"> 3,750</td>
+							<td class="nobg"> 26.00</td>
+							<td class="nobg"> 26.95</td>
+							<td class="nobg"> 150</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=8950.00"><b>8950.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 115.05</td>
+							<td class="ylwbg"> 200.30</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -37.65</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','8950.00','PE')"> 150.50</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=8950.00&type=PE&expiry=23FEB2017" target="_blank"> 150.50</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 6.56</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 12</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 1,350</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '8950.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9000.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 6,255,300</td>
+							<td class="nobg"> 92,625</td>
+							<td class="nobg"> 145,025</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 10.99</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9000.00&type=CE&expiry=23FEB2017" target="_blank"> 17.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 0.15</td>
+							
+							<td class="nobg"> 375</td>
+							<td class="nobg"> 17.00</td>
+							<td class="nobg"> 17.10</td>
+							<td class="nobg"> 975</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9000.00"><b>9000.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 205.25</td>
+							<td class="ylwbg"> 212.00</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -16.55</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9000.00','PE')"> 212.30</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9000.00&type=PE&expiry=23FEB2017" target="_blank"> 212.30</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 11.27</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 5,270</td>
+							<td class="ylwbg"> -24,300</td>
+						
+							<td class="ylwbg"> 1,392,600</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9000.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9050.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 304,350</td>
+							<td class="nobg"> 66,975</td>
+							<td class="nobg"> 5,319</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 10.83</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9050.00&type=CE&expiry=23FEB2017" target="_blank"> 9.90</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.45</td>
+							
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 9.75</td>
+							<td class="nobg"> 10.05</td>
+							<td class="nobg"> 150</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9050.00"><b>9050.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 167.70</td>
+							<td class="ylwbg"> 343.15</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9050.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9100.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 2,925,675</td>
+							<td class="nobg"> 122,100</td>
+							<td class="nobg"> 53,773</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 11.01</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9100.00&type=CE&expiry=23FEB2017" target="_blank"> 6.15</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.50</td>
+							
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 6.10</td>
+							<td class="nobg"> 6.15</td>
+							<td class="nobg"> 2,625</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9100.00"><b>9100.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 294.25</td>
+							<td class="ylwbg"> 298.65</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -17.05</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9100.00','PE')"> 297.95</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9100.00&type=PE&expiry=23FEB2017" target="_blank"> 297.95</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 10.18</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 1,044</td>
+							<td class="ylwbg"> -5,700</td>
+						
+							<td class="ylwbg"> 460,950</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9100.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9150.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 107,250</td>
+							<td class="nobg"> 19,050</td>
+							<td class="nobg"> 1,837</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 11.00</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9150.00&type=CE&expiry=23FEB2017" target="_blank"> 3.45</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.55</td>
+							
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 3.35</td>
+							<td class="nobg"> 3.50</td>
+							<td class="nobg"> 375</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9150.00"><b>9150.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 294.05</td>
+							<td class="ylwbg"> 392.90</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9150.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9200.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 2,383,800</td>
+							<td class="nobg"> 233,625</td>
+							<td class="nobg"> 24,197</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 11.60</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9200.00&type=CE&expiry=23FEB2017" target="_blank"> 2.55</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.15</td>
+							
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 2.55</td>
+							<td class="nobg"> 2.65</td>
+							<td class="nobg"> 1,200</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9200.00"><b>9200.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 390.25</td>
+							<td class="ylwbg"> 394.55</td>
+							<td class="ylwbg"> 375</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -17.35</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9200.00','PE')"> 394.60</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9200.00&type=PE&expiry=23FEB2017" target="_blank"> 394.60</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 10.51</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 117</td>
+							<td class="ylwbg"> 300</td>
+						
+							<td class="ylwbg"> 101,325</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9200.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9250.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 14,400</td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 33</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 12.23</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9250.00&type=CE&expiry=23FEB2017" target="_blank"> 1.95</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 0.05</td>
+							
+							<td class="nobg"> 975</td>
+							<td class="nobg"> 1.25</td>
+							<td class="nobg"> 1.50</td>
+							<td class="nobg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9250.00"><b>9250.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 368.80</td>
+							<td class="ylwbg"> 517.80</td>
+							<td class="ylwbg"> 225</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9250.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9300.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 1,044,675</td>
+							<td class="nobg"> 43,725</td>
+							<td class="nobg"> 7,557</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 12.76</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9300.00&type=CE&expiry=23FEB2017" target="_blank"> 1.45</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 0.15</td>
+							
+							<td class="nobg"> 1,725</td>
+							<td class="nobg"> 1.45</td>
+							<td class="nobg"> 1.55</td>
+							<td class="nobg"> 150</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9300.00"><b>9300.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 487.60</td>
+							<td class="ylwbg"> 494.40</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Green;"> 17.35</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9300.00','PE')"> 522.10</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9300.00&type=PE&expiry=23FEB2017" target="_blank"> 522.10</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 24.15</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 27</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 38,325</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9300.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9350.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 525</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9350.00&type=CE&expiry=23FEB2017" target="_blank"> 1.45</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 0.55</td>
+							<td class="nobg"> 1.50</td>
+							<td class="nobg"> 600</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9350.00"><b>9350.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 456.50</td>
+							<td class="ylwbg"> 631.70</td>
+							<td class="ylwbg"> 225</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9350.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9400.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 528,225</td>
+							<td class="nobg"> 4,650</td>
+							<td class="nobg"> 8,724</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 14.13</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9400.00&type=CE&expiry=23FEB2017" target="_blank"> 1.00</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 0.10</td>
+							
+							<td class="nobg"> 375</td>
+							<td class="nobg"> 0.95</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 1,950</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9400.00"><b>9400.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 587.10</td>
+							<td class="ylwbg"> 592.20</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -14.05</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9400.00','PE')"> 590.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9400.00&type=PE&expiry=23FEB2017" target="_blank"> 590.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 281</td>
+							<td class="ylwbg"> 150</td>
+						
+							<td class="ylwbg"> 31,725</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9400.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9450.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 225</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9450.00&type=CE&expiry=23FEB2017" target="_blank"> 3.50</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.05</td>
+							<td class="nobg"> 4.30</td>
+							<td class="nobg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9450.00"><b>9450.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 560.95</td>
+							<td class="ylwbg"> 734.65</td>
+							<td class="ylwbg"> 225</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9450.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9500.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 878,400</td>
+							<td class="nobg"> -12,600</td>
+							<td class="nobg"> 3,347</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 15.65</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9500.00&type=CE&expiry=23FEB2017" target="_blank"> 0.80</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Green;"> 0.10</td>
+							
+							<td class="nobg"> 1,200</td>
+							<td class="nobg"> 0.80</td>
+							<td class="nobg"> 0.85</td>
+							<td class="nobg"> 6,225</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9500.00"><b>9500.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 686.90</td>
+							<td class="ylwbg"> 691.55</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -10.15</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9500.00','PE')"> 693.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9500.00&type=PE&expiry=23FEB2017" target="_blank"> 693.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 16.11</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 224</td>
+							<td class="ylwbg"> -450</td>
+						
+							<td class="ylwbg"> 548,775</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9500.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9550.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.05</td>
+							<td class="nobg"> 3.30</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9550.00"><b>9550.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 657.10</td>
+							<td class="ylwbg"> 831.10</td>
+							<td class="ylwbg"> 225</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9550.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9600.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 81,450</td>
+							<td class="nobg"> -1,650</td>
+							<td class="nobg"> 54</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 16.60</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9600.00&type=CE&expiry=23FEB2017" target="_blank"> 0.50</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.05</td>
+							
+							<td class="nobg"> 375</td>
+							<td class="nobg"> 0.50</td>
+							<td class="nobg"> 0.65</td>
+							<td class="nobg"> 2,025</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9600.00"><b>9600.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 785.05</td>
+							<td class="ylwbg"> 789.65</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -61.90</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9600.00','PE')"> 784.85</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9600.00&type=PE&expiry=23FEB2017" target="_blank"> 784.85</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 3</td>
+							<td class="ylwbg"> 225</td>
+						
+							<td class="ylwbg"> 2,025</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9600.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9650.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.05</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9650.00"><b>9650.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 758.00</td>
+							<td class="ylwbg"> 936.60</td>
+							<td class="ylwbg"> 225</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9650.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9700.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 59,250</td>
+							<td class="nobg"> -750</td>
+							<td class="nobg"> 11</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 18.55</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9700.00&type=CE&expiry=23FEB2017" target="_blank"> 0.55</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 750</td>
+							<td class="nobg"> 0.55</td>
+							<td class="nobg"> 0.70</td>
+							<td class="nobg"> 75</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9700.00"><b>9700.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 878.65</td>
+							<td class="ylwbg"> 898.60</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -21.30</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9700.00','PE')"> 906.30</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9700.00&type=PE&expiry=23FEB2017" target="_blank"> 906.30</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 30.86</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 4</td>
+							<td class="ylwbg"> -300</td>
+						
+							<td class="ylwbg"> 3,975</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9700.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9750.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.05</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9750.00"><b>9750.00</b></a></td>
+							<td class="ylwbg"> 225</td>
+							<td class="ylwbg"> 858.55</td>
+							<td class="ylwbg"> 1,029.90</td>
+							<td class="ylwbg"> 225</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9750.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9800.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 40,125</td>
+							<td class="nobg"> -1,425</td>
+							<td class="nobg"> 36</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 19.85</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9800.00&type=CE&expiry=23FEB2017" target="_blank"> 0.45</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 1,575</td>
+							<td class="nobg"> 0.45</td>
+							<td class="nobg"> 0.70</td>
+							<td class="nobg"> 3,000</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9800.00"><b>9800.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 983.00</td>
+							<td class="ylwbg"> 993.90</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9800.00','PE')"> 1,010.00</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9800.00&type=PE&expiry=23FEB2017" target="_blank"> 1,010.00</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 2,850</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9800.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9850.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 9,975</td>
+							<td class="nobg"> 0.05</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9850.00"><b>9850.00</b></a></td>
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 846.75</td>
+							<td class="ylwbg"> 1,149.00</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9850.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9900.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 424,725</td>
+							<td class="nobg"> 75</td>
+							<td class="nobg"> 142</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 21.76</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9900.00&type=CE&expiry=23FEB2017" target="_blank"> 0.50</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg"> 225</td>
+							<td class="nobg"> 0.50</td>
+							<td class="nobg"> 0.60</td>
+							<td class="nobg"> 2,475</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9900.00"><b>9900.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,085.15</td>
+							<td class="ylwbg"> 1,091.00</td>
+							<td class="ylwbg"> 150</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -22.60</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','9900.00','PE')"> 1,090.70</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=9900.00&type=PE&expiry=23FEB2017" target="_blank"> 1,090.70</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg"> 20.99</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 56</td>
+							<td class="ylwbg"> -2,175</td>
+						
+							<td class="ylwbg"> 302,850</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9900.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9950.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=9950.00"><b>9950.00</b></a></td>
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 946.70</td>
+							<td class="ylwbg"> 1,376.80</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '9950.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10000.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 102,150</td>
+							<td class="nobg"> 6,600</td>
+							<td class="nobg"> 7,000</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 22.26</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=10000.00&type=CE&expiry=23FEB2017" target="_blank"> 0.30</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.10</td>
+							
+							<td class="nobg"> 12,075</td>
+							<td class="nobg"> 0.30</td>
+							<td class="nobg"> 0.40</td>
+							<td class="nobg"> 21,075</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=10000.00"><b>10000.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,183.35</td>
+							<td class="ylwbg"> 1,188.85</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Red;"> -24.45</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','10000.00','PE')"> 1,183.45</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=10000.00&type=PE&expiry=23FEB2017" target="_blank"> 1,183.45</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg"> 251</td>
+							<td class="ylwbg"> 8,325</td>
+						
+							<td class="ylwbg"> 185,550</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10000.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10050.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=10050.00"><b>10050.00</b></a></td>
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,042.30</td>
+							<td class="ylwbg"> 1,481.20</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10050.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10100.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg"> 225</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 160</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg"> 24.49</td>
+							<!-- End-->
+							<td class="nobg">
+							
+								
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=10100.00&type=CE&expiry=23FEB2017" target="_blank"> 0.40</a>
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Red;"> -0.10</td>
+							
+							<td class="nobg"> 1,500</td>
+							<td class="nobg"> 0.10</td>
+							<td class="nobg"> 1.00</td>
+							<td class="nobg"> 1,500</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=10100.00"><b>10100.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,201.00</td>
+							<td class="ylwbg"> 1,449.90</td>
+							<td class="ylwbg"> 3,000</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								<!-- <a href="javascript:popup1('NIFTY','OPTIDX','23FEB2017','10100.00','PE')"> 1,350.20</a> -->
+
+								<a href="/live_market/dynaContent/live_watch/get_quote/GetQuoteFO.jsp?underlying=NIFTY&instrument=OPTIDX&strike=10100.00&type=PE&expiry=23FEB2017" target="_blank"> 1,350.20</a>
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg"> 75</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10100.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10150.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=10150.00"><b>10150.00</b></a></td>
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,142.30</td>
+							<td class="ylwbg"> 1,581.20</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10150.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10200.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=10200.00"><b>10200.00</b></a></td>
+							<td class="ylwbg"> 75</td>
+							<td class="ylwbg"> 1,371.25</td>
+							<td class="ylwbg"> 1,479.60</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10200.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10250.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=10250.00"><b>10250.00</b></a></td>
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,237.90</td>
+							<td class="ylwbg"> 1,685.60</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10250.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+									
+						<tr>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','CE')"><img src="/images/print3.gif"></a>
+	
+	</td>-->
+	 
+
+						<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10300.00','CE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<!-- Added By Swapnil IV-->
+							<td class="nobg">-</td>
+							<!-- End-->
+							<td class="nobg">
+							
+							-
+							
+							</td>
+							<!--*Net Change*-->
+							
+							<td class="nobg" Style="color:Black;">-</td>
+							
+							<td class="nobg">-</td>
+							<td class="nobg">-</td>
+							<td class="nobg"> 2.70</td>
+							<td class="nobg"> 5,100</td>
+							<td class="grybg"><a href="/live_market/dynaContent/live_watch/option_chain/optionDates.jsp?symbol=NIFTY&instrument=OPTIDX&strike=10300.00"><b>10300.00</b></a></td>
+							<td class="ylwbg"> 1,200</td>
+							<td class="ylwbg"> 1,291.00</td>
+							<td class="ylwbg"> 1,698.00</td>
+							<td class="ylwbg"> 75</td>
+							
+							<!--*Net Change*-->
+							
+								<td class="ylwbg" Style="color:Black;">-</td>
+							
+							
+							<td class="ylwbg">
+							
+								-
+							
+							
+							
+							</td>
+							<!-- Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<!-- End Added By Swapnil -->
+							<td class="ylwbg">-</td>
+							<td class="ylwbg">-</td>
+						
+							<td class="ylwbg">-</td>
+
+							<td><a href="javascript:chartPopup('NIFTY', 'OPTIDX', '23FEB2017', '10300.00','PE','NIFTY 50');"><img src="/live_market/resources/images/grficon.gif" /></a></td>
+
+	<!--<td><a href="javascript:popup1('','','1')">Quote</a></td>
+	<td><a href="javascript:popup1('','','','','PE')"><img src="/images/print3.gif"></a></td>-->
+
+						</tr>
+						
+<tr>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b>Total</b></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 39,020,625</b></td>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b></b></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 675,645</b></td>
+	<td colspan="15"></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 731,778</b></td>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b></b></td>
+	<td class="nobg" style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b> 45,744,525</b></td>
+	<td style="font-size:1.1em font-family:"Trebuchet MS",Arial,Helvetica,sans-serif !important"><b>Total</b></td>
+</tr>
+		
+
+					</table>
+					
+				</div>
+				<br />
+				<table width="100%"><tbody><tr align="center"><td><a href="#top">Top</a></td></tr></tbody></table>
+			<!-- Main Content End -->
+			
+		 <div class="notes">
+							
+								<p class="title" style="width: 100%; padding: 3px 0; border-bottom: 1px solid #CCCCCC;color: #454444;float: left;font-size: 1.2em;">Note : 10% interest rate is applied while computing implied volatility.</p>
+							
+						 <ul class="noteul_child">
+						 <br/><br/>
+							<li style="background: none repeat scroll 0pt 0pt transparent; clear: both; float: left; font-size: 1.1em; padding: 2px 0pt 2px 12px; width: 520px;"><img align="left" src="/live_market/resources/images/blbox.gif" /> &nbsp;Highlighted options are in-the-money.</li>
+						</ul>
+					</div>
+			<!--Footer Start-->
+			<div id="footer">
+				
+			</div>
+			<!--Footer End-->
+			<div class="clear"></div>
+		</div>
+		<!--Wrapper Bottom End--> 
+	</div>
+	<!--Content Big End--> 
+</div>
+<div class="footer_nav_main">
+	<div id="footer_nav">
+		
+	</div>
+</div>
+</body>
+</html>
+
